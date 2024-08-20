@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+ 
+</head>
+<body class="bg-yellow-50">
+    <div class="p-">
+        <div id='map' class="w-full rounded-md mx-auto h-96"></div>
+    </div>
+    <div id="navigation" class="p-2 w-full">
+        <ul class="border p-2 border-yellow-700 bg-yellow-100 rounded-md grid-cols-1 gap-2 mt-2">
+            <li class="text-sm">
+                <p>latitude : <span id="latitude"></span></p>
+                <p>longitude : <span id="longitude"></span></p>
+                <p class="mt-3">internet : <span id="status"></span></p>
+                <p>mesin tracking : <span id="mesin">off</span></p>
+                <p>koneksi internet : <span id="connection-type">n/a</span></p>
+                <p>detik berjalan : <span id="detik">n/a</span></p>
+            </li>
+        </ul>
+        <div class="flex gap-3 items-center text-center justify-between">
+            <button  id="submit-btn" class="bg-yellow-100 text-yellow-600 border border-yellow-700 rounded-md px-3 py-2 mt-2 rounded-sm w-32 text-sm font-semibold">Start</button>
+            <div class="flex justify-between items-center gap-2">
+                <a href="/show-location" class="flex items-center justify-center bg-gray-100 text-gray-600 border border-gray-700 rounded-md px-3 py-2 mt-2 rounded-sm text-sm font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                      </svg>
+                      
+                </a>
+                <a href="/show-waypoint" class="flex items-center justify-center bg-gray-100 text-gray-600 border border-gray-700 rounded-md px-3 py-2 mt-2 rounded-sm text-sm font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
+                      </svg>  
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <script src="script/create-v2.js"></script>
+    <script src="/leaflet/leaflet.js"></script>
+    <script type="module" src="/script/show-v2.js"></script>
+</body>
+</html>

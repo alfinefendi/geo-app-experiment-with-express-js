@@ -31,9 +31,9 @@ app.post('/set-location', (req, res) => {
 
     dbGeo.insert(post,(err, data) => {
         if(err) {
-            res.status(500).json({message: "data gagal di input", error: err});
+            res.status(500).json({message: "error", error: err});
         } else {
-            res.status(201).json({message: 'data berhasil di input', data: data});
+            res.status(201).json({message: 'succesfuly inserted', data: data});
             console.log({
                 post: data
             });
@@ -49,7 +49,6 @@ app.get('/show-location', (req, res) => {
 
 app.get('/get-location', (req,res) => {
     dbGeo.find({}, (err, data)=> {
-        console.log(data);
         if(err) {
             res.status(500).json({error: err});
         } else {
@@ -78,22 +77,20 @@ app.post('/set-waypoint', (req, res) => {
             }
 
             if (existingWaypoint) {
-                // Skip saving if the waypoint already exists
-                console.log('titik koordinasi terjadi duplikasi');
-                return res.status(200).json({ message: 'Waypoint already exists', data: existingWaypoint });
+                return res.status(200).json({ message: 'skiping duplication waypoints' });
             }
 
             // Insert new waypoint if it does not exist
             dbWaypoint.insert(post, (err, data) => {
                 if (err) {
-                    return res.status(500).json({ message: "Data waypoint gagal di input", error: err });
+                    return res.status(500).json({ message: "error", error: err });
                 }
 
-                res.status(201).json({ message: 'Data waypoint berhasil di input', data: data });
                 console.log({
-                    message: 'Data waypoint berhasil di input',
+                    message: 'waypoint successfuly inserted',
                     post: data
                 });
+                return res.status(201).json({ message: 'waypoint successfuly inserted', data: data });
             });
         });
     } catch (error) {

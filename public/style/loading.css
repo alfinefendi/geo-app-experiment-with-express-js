@@ -1,0 +1,34 @@
+/* Hide spinner by default */
+.hidden {
+    display: none;
+}
+
+/* Spinner styling */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1); /* Light grey */
+    border-left-color: transparent; /* Make the left part transparent */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: .5rem;
+    animation: spin 1s linear infinite;
+}
+
+/* Keyframes for spinning animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Ensure the button text is not obscured by the spinner */
+.relative {
+    position: relative;
+}
+
+/* Position the spinner at the center of the button */
+.absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

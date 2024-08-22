@@ -17,7 +17,7 @@
 </head>
 
 <body class="bg-yellow-50">
-    <div class="p-">
+    <div class="">
         <div id='map' class="w-full rounded-md mx-auto h-96"></div>
     </div>
     <div id="navigation" class="p-2 w-full">
@@ -32,23 +32,20 @@
         </ul>
         <div class="flex gap-3 items-center text-center justify-between">
             <button id="submit-btn"
-                class="relative bg-yellow-100 text-yellow-600 border border-yellow-700 rounded-md w-20 h-10 mt-2 w-32 text-sm font-semibold">
+                class="relative bg-yellow-100 text-yellow-600 border border-yellow-700 rounded-md w-20 h-8 mt-2 w-32 text-sm font-semibold">
                 <span id="spinner" class="spinner hidden absolute inset-0 m-auto"></span>
                 <span id="button-text">Start</span>
             </button>
 
             <div class="flex justify-between items-center gap-2">
-                <a href="/show-location"
-                    class="flex items-center justify-center bg-gray-100 text-gray-600 border border-gray-700 rounded-md w-20 h-10 mt-2 rounded-sm text-sm font-semibold">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-
+                <a href="/create-location"
+                class="flex items-center justify-center relative bg-yellow-100 text-yellow-600 border border-yellow-700 rounded-md w-20 h-8 mt-2 text-sm font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                  </svg>                  
                 </a>
                 <a href="/show-waypoint"
-                    class="flex items-center justify-center bg-gray-100 text-gray-600 border border-gray-700 rounded-md w-20 h-10 mt-2 rounded-sm text-sm font-semibold">
+                    class="flex items-center justify-center  bg-yellow-100 text-yellow-600 border border-yellow-700 rounded-md w-20 h-8 mt-2 rounded-sm text-sm font-semibold">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round"

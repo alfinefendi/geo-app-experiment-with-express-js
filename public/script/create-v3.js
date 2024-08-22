@@ -11,8 +11,12 @@ if ('geolocation' in navigator) {
         const data = {latitude,longitude,timestamp}
         renderMap(data);
 
+        let spinner = document.getElementById('spinner');
+        let buttonText = document.getElementById('button-text');
         const submitBtn = document.querySelector('#send-btn');
         submitBtn.addEventListener('click', async ()=>{
+            spinner.classList.remove('hidden'); // Show spinner
+            buttonText.textContent = ''; // Clear button text
             const fileInput = document.getElementById('images');
             const file = fileInput.files[0]; // Get the file from the input
             console.log(file);
@@ -37,6 +41,8 @@ if ('geolocation' in navigator) {
                 if (response.ok) {
                     alert('Terimakasih atas partisipasnya ..');
                     fileInput.value = '';
+                    spinner.classList.add('hidden'); // Show spinner
+                    buttonText.textContent = 'Send'; // Clear button text
                 } else {
                     alert(json.message);
                 }

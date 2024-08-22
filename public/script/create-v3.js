@@ -1,4 +1,4 @@
-
+let consoleLog = document.getElementById('console-log');
 if ('geolocation' in navigator) {
 
     navigator.geolocation.getCurrentPosition(async position => {
@@ -18,7 +18,7 @@ if ('geolocation' in navigator) {
             console.log(file);
             
         
-            // Create a FormData object to handle file uploads
+        // Create a FormData object to handle file uploads
             const formData = new FormData();
             formData.append('latitude', latitude);
             formData.append('longitude', longitude);
@@ -33,10 +33,12 @@ if ('geolocation' in navigator) {
             try {
                 const response = await fetch('/set-location', options);
                 const json = await response.json();
+                consoleLog.innerHTML = JSON.stringify(json, null, 2);
                 if (response.ok) {
                     alert('Terimakasih atas partisipasnya ..');
+                    fileInput.value = '';
                 } else {
-                    alert('Error: ' + json.message);
+                    alert(json.message);
                 }
             } catch (error) {
                 console.error('Error:', error);

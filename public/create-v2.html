@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="style/loading.css">
+
+</head>
+
+<body class="bg-yellow-50">
+    <div class="">
+        <div id='map' class="w-full rounded-md mx-auto h-96"></div>
+    </div>
+    <div id="navigation" class="p-2 w-full">
+        <ul class="border p-2 border-yellow-700 bg-yellow-100 rounded-md grid-cols-1 gap-2 mt-2">
+            <li class="text-sm">
+                <p>latitude : <span id="latitude"></span></p>
+                <p>longitude : <span id="longitude"></span></p>
+                <p>mesin tracking : <span id="mesin">off</span></p>
+                <p>koneksi internet : <span id="connection-type">n/a</span></p>
+                <p>snapshot : <span id="snapshot">n/a</span></p>
+            </li>
+        </ul>
+        <div class="flex gap-3 items-center text-center justify-between">
+            <button id="submit-btn"
+                class="relative bg-yellow-100 text-yellow-600 border border-yellow-700 rounded-md w-20 h-8 mt-2 w-32 text-sm font-semibold">
+                <span id="spinner" class="spinner hidden absolute inset-0 m-auto"></span>
+                <span id="button-text">Start</span>
+            </button>
+
+            <div class="flex justify-between items-center gap-2">
+                <a href="/create-location"
+                class="flex items-center justify-center relative bg-yellow-100 text-yellow-600 border border-yellow-700 rounded-md w-20 h-8 mt-2 text-sm font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                  </svg>                  
+                </a>
+                <a href="/show-waypoint"
+                    class="flex items-center justify-center  bg-yellow-100 text-yellow-600 border border-yellow-700 rounded-md w-20 h-8 mt-2 rounded-sm text-sm font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="w-full mt-4">
+            <div class="coding inverse-toggle px-5 pt-4 shadow-lg text-gray-100 text-sm font-mono subpixel-antialiased 
+                    bg-gray-800  pb-6 pt-4 rounded-lg leading-normal overflow-hidden">
+                <div class="top mb-2 flex">
+                    <div class="h-3 w-3 bg-red-500 rounded-full"></div>
+                    <div class="ml-2 h-3 w-3 bg-orange-300 rounded-full"></div>
+                    <div class="ml-2 h-3 w-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="mt-4 flex text-xs">
+                    <span class="text-green-400">computer:~$</span>
+                    <p id="console-log" class="flex-1 typing items-center pl-2">
+                        waiting a response
+                        <br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- component -->
+
+    <script src="script/create-v2.js"></script>
+    <script src="/leaflet/leaflet.js"></script>
+    <script type="module" src="/script/show-v2.js"></script>
+</body>
+
+</html>

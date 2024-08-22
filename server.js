@@ -39,6 +39,11 @@ app.get('/get-location', (req,res) => {
 
 // V2
 
+
+app.get('/create-waypoint', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'create-v2.html'));
+});
+
 app.post('/set-waypoint', (req, res) => {  
     const post = {
         ...req.body,
@@ -144,7 +149,7 @@ app.post('/set-location', upload.single('image'), (req, res) => {
     try {
         // Check if file is uploaded
         if (!req.file) {
-            return res.status(400).json({ message: 'No file uploaded.' });
+            return res.status(400).json({ message: 'Belum ada file / gambar yang di upload !' });
         }
 
         // Prepare the data to store in NeDB
@@ -161,7 +166,11 @@ app.post('/set-location', upload.single('image'), (req, res) => {
             if (err) {
                 return res.status(500).json({ message: 'Error saving data to database.', error: err });
             }
-            res.status(201).json({ message: 'Successfully inserted.', data });
+            console.log({
+                message: 'location and image successfuly saved',
+                post: data
+            });
+            return res.status(201).json({ message: 'location and image successfuly saved', data: data });
         });
 
     } catch (error) {

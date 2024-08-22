@@ -45,10 +45,14 @@ if ('geolocation' in navigator) {
                     buttonText.textContent = 'Send'; // Clear button text
                 } else {
                     alert(json.message);
+                    spinner.classList.add('hidden'); 
+                    buttonText.textContent = 'Send';
                 }
             } catch (error) {
                 console.error('Error:', error);
                 alert('An error occurred.');
+                spinner.classList.add('hidden'); 
+                buttonText.textContent = 'Send';
             } 
         });
         
